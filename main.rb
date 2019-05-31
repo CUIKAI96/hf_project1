@@ -11,7 +11,7 @@ provider_list.push(Provider.new('Kai', 'spiritual healing', 7349908790))
 if ARGV[0] == 'service:add'
   name = prompt.ask('name:')
   price = prompt.ask('price:')
-  length = prompt.ask('length:')
+  length = prompt.ask('length:')git
   service_list.push(Service.new(name, price, length))
 elsif ARGV[0] == 'service:delete'
   name = prompt.ask('name:')
