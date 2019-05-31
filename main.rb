@@ -8,6 +8,18 @@ service_list.push(Service.new('spiritual healing', 200, 1))
 provider_list = []
 provider_list.push(Provider.new('Kai', 'spiritual healing', 7349908790))
 
+if !ARGV[0]
+  puts "Welcome to Hacker Fellows. Please use the following commands: "
+  puts "
+        service:add,
+        service:delete,
+        provider:add
+        provider:delete
+        appointment:add
+        appointment:list
+       "
+end
+
 if ARGV[0] == 'service:add'
   name = prompt.ask('name:')
   price = prompt.ask('price:')
