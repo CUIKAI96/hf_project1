@@ -1,5 +1,4 @@
- potion therapy, 300, 2
- demonic exorcism, 200, 2
- swim, 100, 1
- exit, 100, 2
- Massages, 900, 1.5
+Massages, 900, 1.5
+swim, 300, 1
+Ashish, 100, 19
+running, 100, 11 
