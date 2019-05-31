@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1560e26-475c-437b-a324-28f3f71bcbe7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/class.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/methods.rb" beforeDir="false" afterPath="$PROJECT_DIR$/methods.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/provider.txt" beforeDir="false" afterPath="$PROJECT_DIR$/provider.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service.txt" beforeDir="false" afterPath="$PROJECT_DIR$/service.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class.rb" beforeDir="false" afterPath="$PROJECT_DIR$/class.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,17 +17,25 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.rb">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/class.rb">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service_tmp.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
@@ -87,8 +90,8 @@
         <option value="$PROJECT_DIR$/service_tmp.txt" />
         <option value="$PROJECT_DIR$/methods.rb" />
         <option value="$PROJECT_DIR$/service.rb" />
-        <option value="$PROJECT_DIR$/class.rb" />
         <option value="$PROJECT_DIR$/main.rb" />
+        <option value="$PROJECT_DIR$/class.rb" />
       </list>
     </option>
   </component>
@@ -144,12 +147,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1559157678170</updated>
-      <workItem from="1559157681019" duration="24492000" />
+      <workItem from="1559157681019" duration="25421000" />
     </task>
+    <task id="LOCAL-00001" summary="test">
+      <created>1559264750770</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1559264750772</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24492000" />
+    <option name="totallyTimeSpent" value="25421000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -165,9 +176,9 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24248926" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24248926" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.586747" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.2951807" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32891566" />
@@ -188,6 +199,10 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/menue.rb">
       <provider selected="true" editor-type-id="text-editor">
@@ -195,12 +210,6 @@
           <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.rb">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/methods.rb">
       <provider selected="true" editor-type-id="text-editor" />
@@ -218,6 +227,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,3 @@
+Massages, 900, 1.5
+swim, 300, 1
+Ashish, 100, 19
