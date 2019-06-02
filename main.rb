@@ -12,7 +12,7 @@ provider_list.push(Provider.new('Kai', 'spiritual healing', 7349908790))
 provider_list.push(Provider.new('Ashish', 'yoga, spiritual healing', 7890029087))
 
 appointment_list = []
-appointment_list.push(Appointment.new('06/05/2019', '10:00am','yoga','Matt','Ashish'))
+appointment_list.push(Appointment.new('06/05/2019', '10:00','yoga','Matt','Ashish'))
 
 if !ARGV[0]
   puts "Welcome to Hacker Fellows. Please use the following commands: "
@@ -103,10 +103,16 @@ while response != 'exit'.downcase
     name_client = prompt.ask('client name:')
     name_service = prompt.ask('service name:')
     name_provider = prompt.ask('provider name:')
-    date_client = prompt.ask('what day do you want your appointment:')
+    month = prompt.ask('what month do you want your appointment:')
+    day = prompt.ask('What day do you want your appointment:')
     time_client = prompt.ask('what time do you want your appointment:')
+    hour = time_client.slice(0..1)
+    min = time_client.slice(3,4)
+
+    appointment_time = Time.new(2019,month.to_i, day.to_i,hour.to_i,min.to_i)
+    puts appointment_time
     # use these info to create an appointment object
-    app_request = Appointment.new(date_client, time_client, name_service, name_client, name_provider)
+    appointment_validator(name_service, name_provider, appointment_time, service_list, appointment_list, provider_list)
 
     # appointment validator
     # puts "appointment successfully added or appointment denied based on appointment validator output"

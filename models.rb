@@ -14,8 +14,10 @@ class Provider
     @service = service
     @phone = phone
   end
+
 end
 
+# modify this with Time object
 class Appointment
   attr_accessor :date, :time, :service, :client, :provider
   def initialize(date, time, service, client, provider)
@@ -27,18 +29,48 @@ class Appointment
   end
 end
 
-class AppointmentValidator
-  attr_accessor :appointment
-  def initialize(appointment)
-    @appointment = appointment
-    @client = appointment.client
-    @provider = appointment.provider
-    @service = appointment.service
-    @date = appointment.date
-    @time = appointment.time
+class ProviderSchedule
+  attr_accessor :date, :time, :name, :length
+end
+
+def appointment_validator(name_service, name_provider, appointment_time, service_list, appointment_list, provider_list)
+
+  service_names = []
+  provider_names = []
+  service_list.each do |service|
+    service_names.push(service.name)
+  end
+  provider_list.each do |provider|
+    provider_names.push(provider.name)
+  end
+  if (!service_names.include?(name_service))
+    puts "
+          Please use service:add to add service
+         "
+  end
+  if (!provider_names.include?(name_provider))
+    puts "
+          Please use provider:add to add provider
+         "
   end
 
-  def validate
-    # put criteria to validate here
-  end
+  
+  # service_list
+  #
+  # appointment_list.each do |appointment_old|
+  #   if (appointment_old.provider) == appointment.provider
+  #     if (appointment_old.date) == appointment.date
+  #       schedule = []
+  #       schedule.push(appointment_old.time)
+  #       start_time = appointment.time
+  #     end
+  #   end
+  # end
 end
+
+# def add_to_schedule(appointment)
+#   start_time = time.chomp("am" or "pm")
+#   end_time = start_time + lengt
+# end
+
+# schedule = ProviderSchedule.new(appointment.date, appointment.time, provider.name, service.length)
