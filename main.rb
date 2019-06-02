@@ -109,10 +109,10 @@ while response != 'exit'.downcase
     hour = time_client.slice(0..1)
     min = time_client.slice(3,4)
 
-    appointment_time = Time.new(2019,month.to_i, day.to_i,hour.to_i,min.to_i)
-    puts appointment_time
+    time = Time.new(2019,month.to_i, day.to_i,hour.to_i,min.to_i)
+    appointment = Appointment.new(name_client, name_service, name_provider, time)
     # use these info to create an appointment object
-    appointment_validator(name_service, name_provider, appointment_time, service_list, appointment_list, provider_list)
+    appointment_validator(appointment, service_list, appointment_list, provider_list)
 
     # appointment validator
     # puts "appointment successfully added or appointment denied based on appointment validator output"

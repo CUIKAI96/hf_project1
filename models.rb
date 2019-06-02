@@ -20,8 +20,7 @@ end
 # modify this with Time object
 class Appointment
   attr_accessor :date, :time, :service, :client, :provider
-  def initialize(date, time, service, client, provider)
-    @date = date
+  def initialize(time, service, client, provider)
     @time = time
     @service = service
     @client = client
@@ -33,8 +32,8 @@ class ProviderSchedule
   attr_accessor :date, :time, :name, :length
 end
 
-def appointment_validator(name_service, name_provider, appointment_time, service_list, appointment_list, provider_list)
-
+def appointment_validator(appointment, service_list, appointment_list, provider_list)
+  start_time = appointment.time
   service_names = []
   provider_names = []
   service_list.each do |service|
@@ -54,7 +53,13 @@ def appointment_validator(name_service, name_provider, appointment_time, service
          "
   end
 
-  
+  service_list.each do |service|
+    length = service.length
+    if service.name == name_service
+      end_time = start_time + 60*60*length
+    end
+  end
+
   # service_list
   #
   # appointment_list.each do |appointment_old|
