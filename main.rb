@@ -4,7 +4,7 @@ prompt = TTY::Prompt.new
 
 service_list =  []
 service_list.push(Service.new('spiritual healing', 200, 1))
-service_list.push(Service.new('yoga', 300, 1))
+service_list.push(Service.new('yoga', 300, 5))
 service_list.push(Service.new('swimming',200,1))
 
 provider_list = []
@@ -12,7 +12,7 @@ provider_list.push(Provider.new('Kai', 'spiritual healing', 7349908790))
 provider_list.push(Provider.new('Ashish', 'yoga, spiritual healing', 7890029087))
 
 appointment_list = []
-appointment_list.push(Appointment.new('06/05/2019', '10:00','yoga','Matt','Ashish'))
+appointment_list.push(Appointment.new(Time.now, 'yoga', 'Matt', 'Ashish'))
 
 if !ARGV[0]
   puts "Welcome to Hacker Fellows. Please use the following commands: "
@@ -22,7 +22,7 @@ if !ARGV[0]
         provider:add
         provider:delete
         appointment:add
-        appointment:list
+        schedule:view
         exit
        "
   response = prompt.ask("enter a command")
@@ -105,17 +105,36 @@ while response != 'exit'.downcase
     name_provider = prompt.ask('provider name:')
     month = prompt.ask('what month do you want your appointment:')
     day = prompt.ask('What day do you want your appointment:')
-    time_client = prompt.ask('what time do you want your appointment:')
+    time_client = prompt.ask('what time do you want your appointment (ex 01:30):')
     hour = time_client.slice(0..1)
     min = time_client.slice(3,4)
 
-    time = Time.new(2019,month.to_i, day.to_i,hour.to_i,min.to_i)
-    appointment = Appointment.new(name_client, name_service, name_provider, time)
+    time = Time.new(2020,month.to_i, day.to_i,hour.to_i,min.to_i)
+    appointment = Appointment.new(time, name_service, name_client, name_provider)
     # use these info to create an appointment object
     appointment_validator(appointment, service_list, appointment_list, provider_list)
 
     # appointment validator
     # puts "appointment successfully added or appointment denied based on appointment validator output"
+
+  elsif response == 'schedule:view'
+    name_provider = prompt.ask('Provider name:')
+    month = prompt.ask('What month would you like to view:')
+    day = prompt.ask('What day would you like to view:')
+    puts "Here is your provider's schedule for the day:
+         ----------------------------------------------"
+    provider_list.each do |provider|
+      appointment_list.each do |appointment|
+        if appointment.provider.include?(provider.name)
+          puts "
+                Client: #{appointment.client}
+                Service: #{appointment.service}
+                Time: #{appointment.time}
+
+         ----------------------------------------------"
+        end
+      end
+    end
 
   end
   response = prompt.ask("enter a command")

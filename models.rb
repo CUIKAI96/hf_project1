@@ -30,7 +30,7 @@ end
 
 def appointment_validator(appointment, service_list, appointment_list, provider_list)
   start_time = appointment.time
-  end_time = appointment.time * 60
+  end_time = appointment.time + 60*60*1
   service_names = []
   provider_names = []
   service_list.each do |service|
@@ -39,23 +39,24 @@ def appointment_validator(appointment, service_list, appointment_list, provider_
   provider_list.each do |provider|
     provider_names.push(provider.name)
   end
-  if (!service_names.include?(name_service))
+  if (!service_names.include?(appointment.service))
     puts "
           Please use service:add to add service
          "
   end
-  if (!provider_names.include?(name_provider))
+  if (!provider_names.include?(appointment.provider))
     puts "
           Please use provider:add to add provider
          "
   end
 
   service_list.each do |service|
-    length = service.length
-    if service.name == name_service
+    length = service.length.to_i
+    if service.name == appointment.service
       end_time = start_time + 60*60*length
     end
   end
+
 
   # service_list
   #
