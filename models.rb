@@ -26,3 +26,19 @@ class Appointment
     @provider = provider
   end
 end
+
+class AppointmentValidator
+  attr_accessor :appointment
+  def initialize(appointment)
+    @appointment = appointment
+    @client = appointment.client
+    @provider = appointment.provider
+    @service = appointment.service
+    @date = appointment.date
+    @time = appointment.time
+  end
+
+  def validate
+    # put criteria to validate here
+  end
+end

@@ -28,7 +28,7 @@ puts menu.map { |key, value|
 # menu.keys.each do |item|
 #   puts item.ljust(l, '.')
 # end
-class Appointment
+class Appointment2
   def initialize(start_time, length_in_minute)
     @start_time = start_time
     @length_in_minute = length_in_minute
@@ -43,7 +43,7 @@ class Appointment
   end
 end
 
-appointment = Appointment.new('2:00', 60)
+appointment = Appointment2.new('2:00', 60)
 
 class Appointment1
   # read info from characters

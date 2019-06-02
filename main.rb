@@ -1,5 +1,5 @@
 require 'tty-prompt'
-require_relative 'class'
+require_relative 'models'
 prompt = TTY::Prompt.new
 
 service_list =  []
@@ -10,6 +10,9 @@ service_list.push(Service.new('swimming',200,1))
 provider_list = []
 provider_list.push(Provider.new('Kai', 'spiritual healing', 7349908790))
 provider_list.push(Provider.new('Ashish', 'yoga, spiritual healing', 7890029087))
+
+appointment_list = []
+appointment_list.push(Appointment.new('06/05/2019', '10:00am','yoga','Matt','Ashish'))
 
 if !ARGV[0]
   puts "Welcome to Hacker Fellows. Please use the following commands: "
@@ -99,8 +102,11 @@ while response != 'exit'.downcase
   elsif response == 'appointment:add'
     name_client = prompt.ask('client name:')
     name_service = prompt.ask('service name:')
+    name_provider = prompt.ask('provider name:')
     date_client = prompt.ask('what day do you want your appointment:')
     time_client = prompt.ask('what time do you want your appointment:')
+    # use these info to create an appointment object
+    app_request = Appointment.new(date_client, time_client, name_service, name_client, name_provider)
 
     # appointment validator
     # puts "appointment successfully added or appointment denied based on appointment validator output"
