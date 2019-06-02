@@ -99,11 +99,12 @@ while response != 'exit'.downcase
   elsif response == 'appointment:add'
     name_client = prompt.ask('client name:')
     name_service = prompt.ask('service name:')
-    one_aptmt = prompt.ask('is this one time appointment?')
-    if one_aptmt == 'Y' || 'y'
-      # puts open time slots here
-      time_client = prompt.ask('choose one of the above slot')
-    end
+    date_client = prompt.ask('what day do you want your appointment:')
+    time_client = prompt.ask('what time do you want your appointment:')
+
+    # appointment validator
+    # puts "appointment successfully added or appointment denied based on appointment validator output"
+
   end
   response = prompt.ask("enter a command")
 end
