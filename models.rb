@@ -18,8 +18,6 @@ class Provider
 
 end
 
-# modify this with Time object
-# how to use one object inside of another class obj
 class Appointment
   attr_accessor :time, :service, :client, :provider
   def initialize(time, service, client, provider)
@@ -87,7 +85,7 @@ def appointment_validator(appointment, service_list, appointment_list, provider_
 
   if validator.all? == FALSE
     puts "
-          please select a different date or time.
+          Please select a different date or time.
          "
   else
     appointment_list.push(appointment)
@@ -96,36 +94,4 @@ def appointment_validator(appointment, service_list, appointment_list, provider_
          "
   end
 
-  end
-
-
-#     index = service_names.index(appointment_old.service)
-#     appointment_old_length = service_lengths[index].to_i
-#     appointment_old_end_time = appointment_old.time + 60*60*appointment_old_length
-#     if (appointment_old.time >= end_time or start_time >= appointment_old_end_time)
-#       appointment_list.push(appointment)
-#       puts "
-#                  Your appointment has been successfully scheduled!
-#                  "
-#     elsif puts "
-#                       Please try a different time or date.
-#                      "
-#     end
-#   end
-# else appointment_list.push(appointment)
-# puts "
-#                  Your appointment has been successfully scheduled!
-#                  "
-#
-# end
-# else appointment_list.push(appointment)
-# puts "
-#                  Your appointment has been successfully scheduled!
-
-
-# def add_to_schedule(appointment)
-#   start_time = time.chomp("am" or "pm")
-#   end_time = start_time + lengt
-# end
-#
-# schedule = ProviderSchedule.new(appointment.date, appointment.time, provider.name, service.length)
+end

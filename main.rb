@@ -16,6 +16,7 @@ provider_list.push(Provider.new('Ashish', 'yoga, spiritual healing', 7890029087)
 
 appointment_list = []
 appointment_list.push(Appointment.new(Time.now, 'yoga', 'Matt', 'Ashish'))
+appointment_list.push(Appointment.new(Time.now, 'spiritual healing', 'Matt', 'Kai'))
 
 if !ARGV[0]
   puts "Welcome to Hacker Fellows. Please use the following commands: "
@@ -31,7 +32,6 @@ if !ARGV[0]
   response = prompt.ask("enter a command")
 end
 
-# change all argv[0] to response
 while response != 'exit'.downcase
 
   if response == 'service:add'
@@ -121,22 +121,22 @@ while response != 'exit'.downcase
   elsif response == 'schedule:view'
     name_provider = prompt.ask('Provider name:')
     month = prompt.ask('What month would you like to view:')
-    #day = prompt.ask('What day would you like to view:')
     puts "Here is your provider's schedule for the day:
          ----------------------------------------------"
     provider_list.each do |provider|
-      appointment_list.each do |appointment|
-        if appointment.provider.include?(provider.name)
-          puts "
-                Client: #{appointment.client}
-                Service: #{appointment.service}
-                Time: #{appointment.time}
+      if provider.name.include?(name_provider)
+        appointment_list.each do |appointment|
+          if appointment.provider.include?(provider.name) && appointment.time.month == month.to_i
+            puts "
+                  Client: #{appointment.client}
+                  Service: #{appointment.service}
+                  Time: #{appointment.time}
 
-         ----------------------------------------------"
+           ----------------------------------------------"
+          end
         end
       end
     end
-
   end
   response = prompt.ask("enter a command")
 end
