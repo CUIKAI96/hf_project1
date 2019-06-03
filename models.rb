@@ -18,8 +18,6 @@ class Provider
 
 end
 
-# modify this with Time object
-# how to use one object inside of another class obj
 class Appointment
   attr_accessor :time, :service, :client, :provider
   def initialize(time, service, client, provider)
@@ -30,7 +28,16 @@ class Appointment
   end
 end
 
-def appointment_validator(appointment, service_list, appointment_list, provider_list)
+class Unavailability
+  attr_accessor :time, :provider, :length
+  def initialize(time, provider, length)
+    @time = time
+    @provider = provider
+    @length = length
+  end
+end
+
+def appointment_validator(appointment, service_list, appointment_list, provider_list, unavailability_list)
 
   service_names = []
   service_lengths = []
@@ -87,45 +94,40 @@ def appointment_validator(appointment, service_list, appointment_list, provider_
 
   if validator.all? == FALSE
     puts "
-          please select a different date or time.
+          Please select a different date or time.
          "
   else
-    appointment_list.push(appointment)
-    puts "
-          Your appointment is successfully added!
+    unavailability_temp = []
+    unavailability_list.each do |unavailability|
+      if unavailability.provider == appointment.provider
+        if unavailability.time.month == appointment.time.month
+          if unavailability.time.day == appointment.time.day
+            unavailability_temp.push(unavailability)
+          end
+        end
+      end
+    end
+
+    validator2 = []
+    unavailability_temp.each do |unav_temp|
+      unav_temp_length = unav_temp.length.to_i
+      unav_temp_end_time = unav_temp.time + 60*60*unav_temp_length
+      if (unav_temp_end_time <= start_time or end_time <= unav_temp.time)
+        validator2.push(TRUE)
+      else
+        validator2.push(FALSE)
+      end
+    end
+
+    if validator2.all? == TRUE
+      appointment_list.push(appointment)
+      puts "
+            Your appointment is successfully added!
          "
+    else
+      puts "
+          Please select a different date or time.
+         "
+    end
   end
-
-  end
-
-
-#     index = service_names.index(appointment_old.service)
-#     appointment_old_length = service_lengths[index].to_i
-#     appointment_old_end_time = appointment_old.time + 60*60*appointment_old_length
-#     if (appointment_old.time >= end_time or start_time >= appointment_old_end_time)
-#       appointment_list.push(appointment)
-#       puts "
-#                  Your appointment has been successfully scheduled!
-#                  "
-#     elsif puts "
-#                       Please try a different time or date.
-#                      "
-#     end
-#   end
-# else appointment_list.push(appointment)
-# puts "
-#                  Your appointment has been successfully scheduled!
-#                  "
-#
-# end
-# else appointment_list.push(appointment)
-# puts "
-#                  Your appointment has been successfully scheduled!
-
-
-# def add_to_schedule(appointment)
-#   start_time = time.chomp("am" or "pm")
-#   end_time = start_time + lengt
-# end
-#
-# schedule = ProviderSchedule.new(appointment.date, appointment.time, provider.name, service.length)
+end

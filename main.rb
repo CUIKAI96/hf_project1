@@ -16,6 +16,10 @@ provider_list.push(Provider.new('Ashish', 'yoga, spiritual healing', 7890029087)
 
 appointment_list = []
 appointment_list.push(Appointment.new(Time.now, 'yoga', 'Matt', 'Ashish'))
+appointment_list.push(Appointment.new(Time.now, 'spiritual healing', 'Mack', 'Kai'))
+
+unavailability_list = []
+unavailability_list.push(Unavailability.new(Time.new(2020, 06, 12, 10, 0, 0, "-04:00"), 'Kai', 4))
 
 if !ARGV[0]
   puts "Welcome to Hacker Fellows. Please use the following commands: "
@@ -33,7 +37,6 @@ if !ARGV[0]
   response = prompt.ask("enter a command")
 end
 
-# change all argv[0] to response
 while response != 'exit'.downcase
 
   if response == 'service:add'
@@ -117,27 +120,29 @@ while response != 'exit'.downcase
     time = Time.new(2020, month.to_i, day.to_i, hour.to_i, min.to_i)
     appointment = Appointment.new(time, name_service, name_client, name_provider)
     # use these info to create an appointment object
-    appointment_validator(appointment, service_list, appointment_list, provider_list)
+    appointment_validator(appointment, service_list, appointment_list, provider_list, unavailability_list)
 
 
   elsif response == 'schedule:view'
     name_provider = prompt.ask('Provider name:')
     month = prompt.ask('What month would you like to view:')
-    #day = prompt.ask('What day would you like to view:')
     puts "Here is your provider's schedule for the day:
          ----------------------------------------------"
     provider_list.each do |provider|
-      appointment_list.each do |appointment|
-        if appointment.provider.include?(provider.name)
-          puts "
-                Client: #{appointment.client}
-                Service: #{appointment.service}
-                Time: #{appointment.time}
+      if provider.name.include?(name_provider)
+        appointment_list.each do |appointment|
+          if appointment.provider.include?(provider.name) && appointment.time.month == month.to_i
+            puts "
+                  Client: #{appointment.client}
+                  Service: #{appointment.service}
+                  Time: #{appointment.time}
 
-         ----------------------------------------------"
+           ----------------------------------------------"
+          end
         end
       end
     end
+
 
   elsif response == 'availability:add'
     puts "
@@ -146,6 +151,18 @@ while response != 'exit'.downcase
          "
 
   elsif response == 'availability:delete'
+    del_provider = prompt.ask('Provider name:')
+    del_month = prompt.ask('What month would you like to delete:')
+    del_day = prompt.ask('What day would you like to delete:')
+    del_hour = prompt.ask('What time would you like to delete:')
+    del_length = prompt.ask('How long would you like to leave:')
+    hour = del_hour.slice(0..1)
+    del_min = del_hour.slice(3,4)
+    del_time = Time.new(2020, del_month.to_i, del_day.to_i, hour.to_i, del_min.to_i)
+    unavailability_list.push(Unavailability.new(del_time, del_provider, del_length ))
+    puts "
+          Enjoy your break! :)
+         "
 
   end
   response = prompt.ask("enter a command")
