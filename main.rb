@@ -1,10 +1,13 @@
 require 'tty-prompt'
+require 'time'
 require_relative 'models'
+
+
 prompt = TTY::Prompt.new
 
 service_list =  []
 service_list.push(Service.new('spiritual healing', 200, 1))
-service_list.push(Service.new('yoga', 300, 5))
+service_list.push(Service.new('yoga', 300, 2))
 service_list.push(Service.new('swimming',200,1))
 
 provider_list = []
@@ -109,18 +112,16 @@ while response != 'exit'.downcase
     hour = time_client.slice(0..1)
     min = time_client.slice(3,4)
 
-    time = Time.new(2020,month.to_i, day.to_i,hour.to_i,min.to_i)
+    time = Time.new(2020, month.to_i, day.to_i, hour.to_i, min.to_i)
     appointment = Appointment.new(time, name_service, name_client, name_provider)
     # use these info to create an appointment object
     appointment_validator(appointment, service_list, appointment_list, provider_list)
 
-    # appointment validator
-    # puts "appointment successfully added or appointment denied based on appointment validator output"
 
   elsif response == 'schedule:view'
     name_provider = prompt.ask('Provider name:')
     month = prompt.ask('What month would you like to view:')
-    day = prompt.ask('What day would you like to view:')
+    #day = prompt.ask('What day would you like to view:')
     puts "Here is your provider's schedule for the day:
          ----------------------------------------------"
     provider_list.each do |provider|
