@@ -36,7 +36,6 @@ if !ARGV[0]
        "
   response = prompt.ask("enter a command")
 end
-
 while response != 'exit'.downcase
 
   if response == 'service:add'
