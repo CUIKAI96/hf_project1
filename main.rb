@@ -26,6 +26,8 @@ if !ARGV[0]
         provider:delete
         appointment:add
         schedule:view
+        availability:add
+        availability:delete
         exit
        "
   response = prompt.ask("enter a command")
@@ -136,6 +138,14 @@ while response != 'exit'.downcase
         end
       end
     end
+
+  elsif response == 'availability:add'
+    puts "
+          功能正在开发中
+          under construction ...
+         "
+
+  elsif response == 'availability:delete'
 
   end
   response = prompt.ask("enter a command")
